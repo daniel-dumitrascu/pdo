@@ -1,0 +1,22 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/mvc
+                           http://www.springframework.org/schema/mvc/spring-mvc.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd ">
+
+    <!-- TODO should this be removed? is it useful anymore?  -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+
+    <context:component-scan base-package="org.projects.centralpoint.Database.Main" />
+    <context:component-scan base-package="org.projects.centralpoint.middleware.Dao" />
+    <context:component-scan base-package="org.projects.centralpoint.middleware.Helper" />
+    <context:component-scan base-package="org.projects.centralpoint.middleware.Models" />
+    <context:component-scan base-package="org.projects.centralpoint.middleware.Services" />
+    <context:component-scan base-package="org.projects.centralpoint.web" />
+
+</beans>

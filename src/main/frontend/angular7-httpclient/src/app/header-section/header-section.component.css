@@ -1,0 +1,4 @@
+A.header_link_color:link { COLOR: white; TEXT-DECORATION: none; font-weight: normal }
+A.header_link_color:visited { COLOR: white; TEXT-DECORATION: none; font-weight: normal }
+A.header_link_color:active { COLOR: #1FA2B2; TEXT-DECORATION: none }
+A.header_link_color:hover { COLOR: #1FA2B2; TEXT-DECORATION: none; font-weight: none }

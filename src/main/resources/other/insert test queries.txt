@@ -1,0 +1,64 @@
+SELECT mspublic.AddNewStorage('HDD-03', 1, TRUE, to_date('01-09-2012', 'DD-MM-YYYY'), FALSE, NULL);
+
+SELECT mspublic.AddOtherVideo('La mare', NULL, 'cool movie ;)', TRUE, 1, 9.0,
+                                to_date('01-09-2012', 'DD-MM-YYYY'), TRUE, FALSE,
+                                7.1, 'www.omdb.com/sunshine', NULL, NULL, 15);
+                                
+                                
+
+INSERT INTO STORAGE (Storage_Name, Type_Of_Storage, Storage_In_Use, In_Use_Starting) VALUES
+(
+     'HDD-01',
+      4,
+      TRUE,
+      to_date('01-09-1963', 'DD-MM-YYYY') 
+);
+
+
+
+
+INSERT INTO backup (Main_Storage, Backup_Storage) VALUES
+(
+        (SELECT (Storage_Key) FROM STORAGE WHERE storage.Storage_Name = 'HDD-03'),
+        (SELECT (Storage_Key) FROM STORAGE WHERE storage.Storage_Name = 'HDD-03')
+);
+
+
+
+INSERT INTO APPS (Title, TYPE, Playform, Added_To_Db_Date, Storage_Key) VALUES
+(
+     'GTA4',
+      1,
+      1,
+      now()::date,
+      (SELECT (Storage_Key) FROM STORAGE WHERE storage.Storage_Name = 'HDD-03')
+);
+
+
+
+INSERT INTO PICTURE_ALBUMS (Title, Nr_Of_Pictures, TYPE, Shot_Date, Added_To_Db_Date, Storage_Key) VALUES
+(
+     'La curte',
+      0,
+      1,
+      to_date('01-09-2016', 'DD-MM-YYYY'),
+      now()::date,
+      (SELECT (Storage_Key) FROM STORAGE WHERE storage.Storage_Name = 'HDD-03')
+);
+
+
+INSERT INTO GAMES (App_Key, Personal_Score) VALUES
+(
+     (SELECT (App_Key) FROM APPS WHERE APPS.Title = 'GTA4' AND APPS.Type = 1), 
+	 10
+);
+
+
+INSERT INTO SONGS (Artist_Key, Title, TYPE, Added_To_Db_Date, Storage_Key) VALUES
+(
+        1, 
+	'Macarena',
+	1,
+	now()::date,
+	12
+);

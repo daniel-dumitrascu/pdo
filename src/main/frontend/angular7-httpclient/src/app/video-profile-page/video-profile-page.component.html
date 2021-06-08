@@ -1,0 +1,168 @@
+<p>
+  <app-header-section></app-header-section>
+</p>
+
+
+<div *ngIf="video; then showProfile else profileNotFound"></div>
+<ng-template #showProfile>
+  <div class="container-fluid padding">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <p class="h4">{{video.title}}</p>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-3">
+        <img class="rounded" height="510" width="340" src="{{video.poster}}">
+      </div>
+      <div class="col-md-7">
+        <h6>{{video.description}}</h6>
+
+        <div class="padding"></div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-block">
+                <p class="card-text">
+                  Video type: {{video.videoType}}<br>
+                  Release date: {{video.releaseDate}}<br>
+                  Runtime: {{video.runtime}} min<br>
+                  Filmed in:
+
+                  <!--<c:forEach items="${video.getCountries()}" var="country" varStatus="loop">
+                    <c:out value="${country.country}"></c:out>
+                  </c:forEach><br>-->
+
+                  Spoken languages:
+
+                  <!--<c:forEach items="${video.getLanguages()}" var="language" varStatus="loop">
+                    <c:out value="${language.language}"></c:out>
+                  </c:forEach><br>-->
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-block">
+                    <p class="card-text">
+                      IMDB score: {{video.internetScore}}<br>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12 padding">
+                <div class="card">
+                  <div class="card-block">
+                    <p class="card-text">
+                      Personal score: {{video.personalScore}}<br>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="padding"></div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-block">
+                <p class="card-text">
+                  Genres:
+
+                  <!--<c:forEach items="${video.getGenres()}" var="genre" varStatus="loop">
+                    <c:out value="${genre.genre}"></c:out>
+                  </c:forEach>-->
+
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-block">
+                <p class="card-text">
+                  Actors: -->
+
+                  <!--<c:forEach items="${video.getActors()}" var="actor" varStatus="loop">
+                    <c:out value="${actor.person.name}"></c:out>
+                  </c:forEach>-->
+
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="padding"></div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-block">
+                <p class="card-text">
+                  Saw it: {{video.sawIt}}<br>
+                  Quality: {{video.quality}}<br>
+                  English subtitle: {{video.hasEnglishSub}}<br>
+                  Romanian subtitle: {{video.hasRomanianSub}}<br>
+                  Stored on: {{video.storageName}}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-block">
+                <p class="card-text">
+                  Tags: <font size="3" color="red">Info will be added!</font>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="padding"></div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-block">
+                <p class="card-text">
+                  Playlists: <font size="3" color="red">Info will be added!</font><br>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-block">
+                <p class="card-text">
+                  Links: <font size="3" color="red">Info will be added!</font>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #profileNotFound>
+  <p>
+    <app-page-not-found></app-page-not-found>
+  </p>
+</ng-template>
+
+
+
+

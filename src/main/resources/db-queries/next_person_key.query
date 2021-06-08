@@ -1,0 +1,1 @@
+SELECT nextval('mspublic.people_people_key_seq'::regclass);

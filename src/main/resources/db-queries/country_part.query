@@ -1,0 +1,2 @@
+JOIN (SELECT (video_key) FROM mspublic.video_country WHERE country = ?) as VK
+on VK.video_key = video.video_key

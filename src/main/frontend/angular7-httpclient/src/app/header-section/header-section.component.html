@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand" style="background-color: #292b2d;">
+  <a [routerLink]="'/'" class="navbar-brand text-info">Data Center</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a [routerLink]="'/video/register'" class="nav-link header_link_color">Register</a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="'/video/search'" class="nav-link header_link_color">Search</a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="'/video/import'" class="nav-link header_link_color">Import</a>
+      </li>
+    </ul>
+
+    <a href="login" class="btn btn-outline-info my-2 my-sm-0 btn-primary-spacing" role="button" aria-pressed="true">Login</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="register" class="btn btn-outline-info my-2 my-sm-0 btn-primary-spacing" role="button" aria-pressed="true">Register</a>
+
+  </div>
+</nav>

@@ -1,0 +1,1 @@
+SELECT (People_key) FROM MSPUBLIC.People WHERE Name = ?1 ;

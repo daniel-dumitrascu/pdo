@@ -1,0 +1,7 @@
+INSERT INTO MSPUBLIC.VIDEO_LANGUAGE(Video_Language_Key, Video_Key, LANGUAGE) 
+VALUES
+(
+	nextval('mspublic.video_language_video_language_key_seq'::regclass),
+	?,
+	?
+);

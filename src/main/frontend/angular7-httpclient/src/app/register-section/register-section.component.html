@@ -1,0 +1,172 @@
+<div class="container">
+  <br>
+  <div class="card text-center">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs" data-tabs="tabs">
+        <li class="nav-item">
+          <a class="nav-link active" href="#video" data-toggle="tab">Video registration</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#app" data-toggle="tab">App registration</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#music" data-toggle="tab">Music registration</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-block">
+      <div class="tab-content">
+        <div class="tab-pane active" id="video" >
+          <form class="form-horizontal" role="form" name="registerForm"><br><br>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6">
+                <div class="form-group has-danger">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <input #videoTitle type="text" name="videoTitle" class="form-control" id="videoTitle"
+                           placeholder="Video title" required autofocus>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6">
+                <div class="form-group has-danger">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <select #videoType select name="videoType" id="videoType" class="form-control" required autofocus>
+                      <option value="movie">Movie</option>
+                      <option value="series">Series</option>
+                      <option value="doc">Documentary</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6">
+                <div class="form-group has-danger">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <select #videoQuality select id="videoQuality" name="videoQuality" class="form-control" required autofocus>
+                      <option value="excellent">Excellent</option>
+                      <option value="good">Good</option>
+                      <option value="average">Average</option>
+                      <option value="bad">Bad</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6">
+                <div class="form-group has-danger">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <input #videoPersonalScore type="number" class="form-control" id="videoPersonalScore" name="videoPersonalScore" step="0.1" min="0.0" max="10.0"
+                           placeholder="Personal score" required autofocus>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6">
+                <div class="form-group has-danger">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <input #videoReleaseYear type="number" class="form-control" id="videoReleaseYear" name="videoReleaseYear"
+                           placeholder="Release year" autofocus>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6">
+                <div class="form-group has-danger">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <select #videoStored select id="videoStored" name="videoStored" class="form-control" required autofocus>
+                      <option value="hdd-01">HDD-01</option>
+                      <option value="hdd-02">HDD-02</option>
+                      <option value="hdd-03">HDD-03</option>
+                      <option value="dvd">DVD</option>
+                      <option value="steam">STEAM</option>
+                      <option value="gog">GOG</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6">
+                <div class="form-group has-danger">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <label class="custom-control custom-checkbox">
+                      <input #videoSawIt type="checkbox" name="videoSawIt" class="form-check-input">
+                      <span class="form-control-description"> Did I say the video ?</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6">
+                <div class="form-group has-danger">
+                  <div class="input-group mb-3 mr-sm-2 mb-sm-0">
+                    <label class="custom-control custom-checkbox">
+                      <input #videoHasRomanianSub type="checkbox" name="videoHasRomanianSub" class="form-check-input">
+                      <span class="custom-control-description"> Does the video has a romanian subtitle ?</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6">
+                <div class="form-group has-danger">
+                  <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                    <label class="custom-control custom-checkbox">
+                      <input #videoHasEnglishSub type="checkbox" name="videoHasEnglishSub" class="form-check-input">
+                      <span class="custom-control-description"> Does the video has a english subtitle ?</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row" style="padding-top: 1rem">
+              <div class="col-md-3"></div>
+              <div class="col-md-6">
+                <button type="submit" (click)="sendData($event)" value="Register" class="btn btn-success"><i class="fa fa-sign-in">
+                </i> Register</button>
+              </div>
+            </div>
+          </form>
+        </div><br>
+        <div class="tab-pane" id="app" >
+          <p> App Content </p>
+        </div>
+        <div class="tab-pane" id="music" >
+          <p> Music Content </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+
+<div *ngIf="infoMsg; then printInfoMessage"></div>
+<ng-template #printInfoMessage>
+  <div class="alert alert-info">
+    <strong>Info:</strong> {{infoMsg}}
+  </div>
+</ng-template>
+<div *ngIf="errorMsg; then printErrorMessage"></div>
+<ng-template #printErrorMessage>
+  <div class="alert alert-danger">
+    <strong>Error:</strong> {{errorMsg}}
+  </div>
+</ng-template>

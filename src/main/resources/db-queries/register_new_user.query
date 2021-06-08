@@ -1,0 +1,9 @@
+INSERT INTO MSPUBLIC.USERS(User_Key, People_key, Username, Password, Email)
+VALUES
+(
+	nextval('mspublic.users_user_key_seq'::regclass),
+	?,
+	?,
+	?,
+	?
+);

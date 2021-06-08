@@ -1,0 +1,8 @@
+INSERT INTO MSPUBLIC.PEOPLE(People_Key, Name, Nationality, Role)
+VALUES
+(
+	?,
+	?,
+	?,
+	?
+);

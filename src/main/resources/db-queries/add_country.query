@@ -1,0 +1,7 @@
+INSERT INTO MSPUBLIC.VIDEO_COUNTRY(Video_Country_Key, Video_Key, Country) 
+VALUES
+(
+	nextval('mspublic.video_country_video_country_key_seq'::regclass),
+	?,
+	?
+);

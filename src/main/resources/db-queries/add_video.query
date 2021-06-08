@@ -1,0 +1,25 @@
+INSERT INTO MSPUBLIC.VIDEO (Video_key, Title, Also_Known_As, Description,
+                            Video_Type, Saw_It, Quality, Personal_Score, Release_Date,
+                            Has_Romanian_Sub, Has_English_Sub, Runtime, Added_To_Db_Date,
+                            Imdb_Score, Omdb_Link, Imdb_Link, Youtube_Link, Storage_Key) 
+VALUES
+                            (
+                                        ?,
+                                        ?,
+                                        ?,
+                                        ?,
+                                        ?,
+                                        ?,
+                                        ?,
+                                        ?,
+                                        ?,
+                                        ?,
+                                        ?,
+                                        ?,
+                                        now()::date,
+                                        ?,
+                                        ?,
+                                        ?,
+                                        ?,
+                                        ?
+                            );

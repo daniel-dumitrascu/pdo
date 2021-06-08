@@ -1,0 +1,7 @@
+INSERT INTO MSPUBLIC.ACTORS(Actor_Key, People_Key, Video_Key)
+VALUES
+(
+	nextval('mspublic.actors_actor_key_seq'::regclass),
+	?,
+	?
+);

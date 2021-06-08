@@ -1,0 +1,8 @@
+INSERT INTO MSPUBLIC.EXTRA_VIDEO_INFO_DOC (Extra_Video_Info_Doc_Key, Video_Key, Is_Series, Docs_In_Series) 
+VALUES
+                            (
+                                        nextval('mspublic.extra_video_info_doc_extra_video_info_doc_key_seq'::regclass),
+                                        ?,
+                                        ?,
+                                        ?
+                            );

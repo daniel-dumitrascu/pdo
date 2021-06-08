@@ -1,0 +1,1 @@
+SELECT nextval('mspublic.video_video_key_seq'::regclass);

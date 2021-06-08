@@ -1,0 +1,116 @@
+<!-- Results box -->
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div *ngIf="filteredVideos?.length > 0; then resultNotZero"></div>
+    <ng-template #resultNotZero>
+	<div class="article listo nm" style="display:block;">
+		<div class="list detail sub-list">
+		  <div *ngFor="let item of filteredVideos; let index=index;">
+			<div class="list_item {{index % 2 == 0 ? ' even' : ' odd'}}" itemscope="" itemtype="http://schema.org/Movie">
+			  <table cellspacing="0" cellpadding="0" border="0" class="nm-title-overview-widget-layout">
+				<tbody>
+				<tr>
+				  <td rowspan="2" valign="top" id="img_primary">
+					<div class="image">
+					  <a href="/video/profile/{{item.id}}">
+						<div class="hover-over-image zero-z-index">
+							<img class="poster shadowed" height="209" width="140" src="{{item.poster}}" itemprop="image">
+						</div>
+					  </a>
+					</div>
+				  </td>
+				  <td class="overview-top">
+					<div *ngIf="item.releaseYear; then releaseYearIsNotEmpty else releaseYearIsEmpty"></div>
+					<ng-template #releaseYearIsNotEmpty>
+					  <h4 itemprop="name"><a href="/video/profile/{{item.id}}" itemprop="url"><b>{{item.title}} ({{item.releaseYear}})</b></a></h4>
+					</ng-template>
+					<ng-template #releaseYearIsEmpty>
+					  <h4 itemprop="name"><a href="/video/profile/{{item.id}}" itemprop="url"><b>{{item.title}}</b></a></h4>
+					</ng-template>
+					<p class="cert-runtime-genre">
+					  <time itemprop="duration" datetime="PT147M">{{item.runtime}} min</time>
+					  &nbsp;&nbsp;-&nbsp;&nbsp;
+					  <tr *ngFor="let genre of item.genres">
+						<span itemprop="genre">{{genre.getGenre()}}</span>
+						<div *ngIf="index < (item.genres?.length - 1); then pipeSeparator"></div>
+						<ng-template #pipeSeparator>
+						  <span class="ghost">|</span>
+						</ng-template>
+					  </tr>
+					</p>
+					<div class="rating_txt">
+					  Internet Score:
+					  <span class="rating-rating "><span class="value">
+						<div *ngIf="item.internetScore > 0; then printInternetScore else printNoInternetScore"></div>
+						<ng-template #printInternetScore>
+						  {{item.internetScore}}
+						</ng-template>
+						<ng-template #printNoInternetScore>
+						  -
+						</ng-template>
+					  </span><span class="grey">/</span><span class="grey">10</span></span>
+					  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;
+					  Personal Score:
+					  <span class="rating-rating "><span class="value">
+						<div *ngIf="item.personalScore > 0; then printPersonalScore else printNoPersonalScore"></div>
+						<ng-template #printPersonalScore>
+						  {{item.personalScore}}
+						</ng-template>
+						<ng-template #printNoPersonalScore>
+						  -
+						</ng-template>
+						</span><span class="grey">/</span><span class="grey">10</span></span>
+					  &nbsp;
+					</div>
+				  <div class="outline" itemprop="description">
+					{{item.description}}
+				  </div>
+				  <div class="txt-block">
+					<h5 class="inline"><b>Budget:</b></h5>
+					<div *ngIf="item.budget > 0; then printBudget else printNABudget"></div>
+					<ng-template #printBudget>
+					  ${{item.budget | number: '2.'}}
+					</ng-template>
+					<ng-template #printNABudget>
+					  N/A
+					</ng-template>
+				  </div>
+				  <div class="txt-block">
+					<h5 class="inline"><b>Revenue:</b></h5>
+					<div *ngIf="item.revenue > 0; then printRevenue else printNARevenue"></div>
+					<ng-template #printRevenue>
+					  ${{item.revenue | number: '2.'}}
+					</ng-template>
+					<ng-template #printNARevenue>
+					  N/A
+					</ng-template>
+				  </div>
+				  <div class="txt-block">
+					<h5 class="inline"><b>Storaged on:</b></h5>
+					<div *ngIf="item.storageName; then printStorage else printNoStorage"></div>
+					<ng-template #printStorage>
+					  {{item.storageName}}
+					</ng-template>
+					<ng-template #printNoStorage>
+					  N/A
+					</ng-template>
+				  </div>
+				  <div class="txt-block">
+					<div *ngIf="item.imdbLink; then printImdbLink"></div>
+					<ng-template #printImdbLink>
+					  <a href="{{item.imdbLink}}"><img src="/assets/imdb_icon.png" style="width:30px;height:30px;"/></a>
+					</ng-template>
+				  </div>
+				  </td>
+				</tr>
+				</tbody>
+			  </table>
+			</div>
+		  </div>
+		</div>
+	</div>
+    </ng-template>
+  </div>
+  <div class="col-md-2"></div>
+</div>

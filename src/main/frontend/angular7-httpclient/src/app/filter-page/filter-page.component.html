@@ -1,0 +1,15 @@
+<p>
+  <app-header-section></app-header-section>
+</p>
+
+<br>
+
+<p>
+  <app-filter-control-section (filterDataEvent)="receiveFilterData($event)"></app-filter-control-section>
+</p>
+
+<br><br>
+
+<p>
+  <app-filter-result-section [filteredVideos]="videoFilterResult"></app-filter-result-section>
+</p>

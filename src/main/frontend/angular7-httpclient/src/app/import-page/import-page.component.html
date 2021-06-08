@@ -1,0 +1,36 @@
+<p>
+  <app-header-section></app-header-section>
+</p>
+
+<br>
+
+<div class="container"><br><br>
+  <form [formGroup] = "uploadForm" class="form-horizontal" role="form" method="POST" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <h2>Import data using files</h2>
+        <hr>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <input #browseButton type="file" accept="*.*" (change)="AfterFileSelection($event)">
+      </div>
+      <div class="col-md-4"></div>
+    </div><br>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <button #importButton type="submit" class="btn btn-primary btn-lg" (click)="StartSpinner($event)" >Import</button>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+  </form>
+
+  <br><br>
+
+  <div #spinner class="loader" hidden="true"></div>
+</div>

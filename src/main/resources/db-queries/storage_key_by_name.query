@@ -1,0 +1,1 @@
+SELECT (Storage_Key) FROM MSPUBLIC.STORAGE WHERE Storage_Name = ?;

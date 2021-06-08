@@ -1,0 +1,16 @@
+-- In this script we are going to create the database
+-- that we are going to use in our app
+
+-- Create a new role
+CREATE ROLE daniel WITH LOGIN PASSWORD 'password' SUPERUSER;
+
+-- Create the database with the new role as owner
+CREATE DATABASE centralpointdb OWNER = daniel;
+\connect centralpointdb;
+
+-- Create TEST schema
+CREATE SCHEMA IF NOT EXISTS MS_TEST;
+
+-- Create MAIN schema
+CREATE SCHEMA IF NOT EXISTS MS_MAIN;
+SET search_path TO MS_MAIN;

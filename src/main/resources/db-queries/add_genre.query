@@ -1,0 +1,7 @@
+INSERT INTO MSPUBLIC.VIDEO_GENRES(Video_Genre_Key, Video_Key, Genre) 
+VALUES
+(
+	nextval('mspublic.video_genres_video_genre_key_seq'::regclass),
+	?,
+	?
+);

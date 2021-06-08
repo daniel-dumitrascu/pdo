@@ -1,0 +1,105 @@
+<!-- Search box -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="card bg-light">
+        <div class="card-header">Videos</div>
+        <div class="card-body">
+          <form name="registerForm">
+            <input #videoMainTitle class="form-control" type="text" name="videoMainTitle" placeholder="Search video">
+            <div class="col-md-12">
+				<div class="row">
+					<label class="custom-control custom-checkbox">
+					  <input #videoExactTitle type="checkbox" name="videoExactTitle" class="form-check-input">
+					  Exact main title
+					</label>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<label class="custom-control custom-checkbox">
+					  <input #videoSawIt type="checkbox" name="videoSawIt" class="form-check-input">
+					  Was seen by me
+					</label>
+				</div>
+			</div>
+            <div class="collapse multi-collapse" id="multiCollapse1"> <hr>
+              <div class="row">
+                <div class="col-md-4">
+                  <input #videoReleaseYear class="form-control" type="number" name="videoReleaseYear" placeholder="Release year" step="1">
+                  <label class="custom-control form-check-label">
+                    <input #videoBeforeYear type="checkbox" name="videoBeforeYear" id="videoBeforeYear" (click)="ensureReleaseYearCorrectness($event)" class="form-check-input">
+                    Before this date
+                  </label>
+                  <label class="custom-control form-check-label">
+                    <input #videoAfterYear type="checkbox" name="videoAfterYear" id="videoAfterYear" (click)="ensureReleaseYearCorrectness($event)" class="form-check-input">
+                    After this date
+                  </label><br>
+                </div>
+
+                <div class="col-md-4">
+                  <input #videoRuntime class="form-control" type="number" name="videoRuntime" id="videoRuntimeId" step="1" placeholder="Runtime">
+                  <label class="custom-control form-check-label">
+                    <input #videoWithinRuntime type="checkbox" name="videoWithinRuntime" id="videoWithinRuntime" (click)="ensureRuntimeCorrectness($event)" class="form-check-input">
+                    Within runtime
+                  </label>
+                  <label class="custom-control form-check-label">
+                    <input #videoExceedsRuntime type="checkbox" name="videoExceedsRuntime" id="videoExceedsRuntime" (click)="ensureRuntimeCorrectness($event)" class="form-check-input">
+                    Exceeding runtime
+                  </label><br>
+                </div>
+
+                <div class="col-md-4">
+                  <input #videoInternetScore class="form-control" type="number" name="videoInternetScore" id="internetScoreId" step="0.0" min="0.0" max="10.0" placeholder="Internet Score">
+                  <label class="custom-control form-check-label">
+                    <input #videoWithinInternetScore type="checkbox" name="videoWithinInternetScore" id="videoWithinInternetScore"  (click)="ensureInternetScoreCorrectness($event)" class="form-check-input">
+                    Within this score
+                  </label>
+                  <label class="custom-control form-check-label">
+                    <input #videoExceedsInternetScore type="checkbox" name="videoExceedsInternetScore" id="videoExceedsInternetScore" (click)="ensureInternetScoreCorrectness($event)" class="form-check-input">
+                    Exceeding this score
+                  </label><br>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <select #videoGenreMultiple class="js-example-basic-multiple" [(ngModel)]="selectedGenres" name="selectedGenres" multiple="multiple" id="video_genres_multiple" data-placeholder="All Genres" style="width: 100%">
+                    <option value="" disabled>Choose the genres</option>
+                    <option *ngFor="let genre of optionsGenre" [value]="genre">{{genre}}</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <select #videoCountryMultiple class="js-example-basic-multiple" [(ngModel)]="selectedCountries" name="countryControl[]" multiple="multiple" id="video_country_multiple" data-placeholder="All Countries"  style="width: 100%">
+                    <option value="" disabled>Choose the countries</option>
+                    <option *ngFor="let country of optionsCountries" [value]="country">{{country}}</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="row">
+                <p></p>
+              </div>
+
+            </div>
+
+            <p class="text-left">
+				<button class="btn btn-primary" type="submit" (click)="getVideoByFilter($event)" >Search</button>
+				&nbsp;
+				<button class="btn btn-default btn-outline-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapse1"><img src="assets/arrows.png" style="width:21px;height:21px;" height="30"></button>
+			</p>
+          </form>
+        </div>
+      </div>
+      <div class="listo nm">
+        <div *ngIf="infoMsg; then printInfoMessage"></div>
+        <ng-template #printInfoMessage>
+          <br><br>
+          <div class="alert alert-info">
+            <strong>{{infoMsg}}</strong>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>

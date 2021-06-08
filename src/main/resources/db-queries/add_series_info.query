@@ -1,0 +1,9 @@
+INSERT INTO MSPUBLIC.EXTRA_VIDEO_INFO_SERIES (Extra_Video_Info_Series_Key, Video_Key, Episode_Runtime, Nr_Of_Seasons, In_Development) 
+VALUES
+                            (
+                                        nextval('mspublic.extra_video_info_series_extra_video_info_series_key_seq'::regclass),
+                                        ?,
+                                        ?,
+                                        ?,
+										?
+                            );
